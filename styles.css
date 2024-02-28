@@ -12,6 +12,9 @@ body {
   background-color: var(--bg-color);
   display: grid;
   grid-template-columns: 80% 20%;
+  @media print {
+    grid-template-columns: 65% 35%;
+}
   grid-template-rows: 1fr;
   height: 100vh;
   margin: 0;
@@ -63,17 +66,24 @@ p {
   .profile-title-role {
     color: rgba(255, 255, 255, 0.55);
   }
+  @media print {
+    .profile-title-full-name,
+    .profile-title-role {
+      color: black;
+    }
+  }
 }
 
 .profile-short-container {
   background-color: var(--bg-color-aside);
   flex-grow: 1;
-  padding-inline: clamp(0rem, 4vw, 2.5rem);
+  padding-inline: clamp(0rem, 2vw, 4rem);
   .profile-block {
     padding-block: 1.25rem;
     color: var(--text-contrast-color);
     font-size: 0.875rem;
     font-style: normal;
+    
     & .profile-block-entity {
       padding-block: 0.4rem;
     }
@@ -91,6 +101,7 @@ p {
     }
     & a {
       color: var(--text-contrast-color);
+      text-decoration: none;
     }
     & p, & h4 {
       margin: 0;
@@ -110,6 +121,15 @@ p {
       font-weight: 500;
     }
     
+    @media print {
+      color: initial;
+      font-size: 1rem;
+      padding-inline: 0;
+      a, p {
+        color: black;
+        
+      }
+    }
 
   }
 }
